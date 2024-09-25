@@ -22,3 +22,9 @@ export const ROLES = {
 export const PEER_ERRORS = {
   UNAVAILABLE_ID: 'unavailable-id',
 } as const;
+
+export const PEER_CONFIG = {
+  config: {
+    iceServers: [{ urls: 'stun:stun.l.google.com:19302' }],
+  },
+};

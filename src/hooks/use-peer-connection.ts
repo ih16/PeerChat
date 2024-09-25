@@ -4,6 +4,7 @@ import {
   CONNECTION_STATUS,
   DEFAULT_NAME,
   EVENTS,
+  PEER_CONFIG,
   PEER_ERRORS,
   RECONNECT_INTERVAL,
   ROLES,
@@ -277,7 +278,9 @@ export function usePeerConnection(
         peerInstance.current.destroy();
       }
 
-      const peer = storedPeerId ? new Peer(storedPeerId) : new Peer();
+      const peer = storedPeerId
+        ? new Peer(storedPeerId, PEER_CONFIG)
+        : new Peer(PEER_CONFIG);
 
       peer.on('open', (id) => {
         peerState.current.peerId = id;
